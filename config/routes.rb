@@ -3,6 +3,7 @@ DeviseTest::Application.routes.draw do
 
   resources :users, only: [:create, :show]
   resources :sessions, only: [:create, :destroy]
+  resources :profiles, only: [:create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

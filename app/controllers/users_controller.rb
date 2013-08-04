@@ -7,11 +7,19 @@ class UsersController < ApplicationController
     if user.save
       render json: user, status: :created
     else
-      respond_with user
+      render json: user
     end
   end
 
   def show
-    respond_with current_user
+    render json: current_user
+  end
+
+  def update
+    if current_user.update_attributes(params[:user])
+      render json: current_users
+    else
+      render json: user, status: :unprocessable_entity
+    end
   end
 end

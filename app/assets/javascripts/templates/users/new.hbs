@@ -19,6 +19,18 @@
         {{errors.passwordConfirmation}}
       </span>
     </div>
+    <div class="control-group" {{bindAttr class="errors.firstName:error"}}>
+      {{view Ember.TextField valueBinding='firstName' placeholder='First Name'}}
+    </div>
+    <div class="control-group" {{bindAttr class="errors.lastName:error"}}>
+      {{view Ember.TextField valueBinding='lastName' placeholder='Last Name'}}
+    </div>
+    <div class="control-group" {{bindAttr class="errors.gender:error"}}>
+      {{view Ember.TextField valueBinding='gender' placeholder='Gender'}}
+    </div>
+    <div class="control-group" {{bindAttr class="errors.birthDate:error" placeholder='Birth Date'}}>
+      {{view App.DateField valueBinding='birthDate'}}
+    </div>
     <a href='#' {{action cancel}} class='btn'>Cancel</a>
     <button type="submit" {{action save}} class='btn btn-large btn-primary'>Sign Up</button>
   </fieldset>

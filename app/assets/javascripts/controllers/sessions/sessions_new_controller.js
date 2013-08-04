@@ -9,6 +9,7 @@ App.SessionsNewController = Ember.ObjectController.extend({
       userJSON.id = 'current';
       var object = self.store.load(App.User, userJSON);
       var user = App.User.find('current');
+      user.reload();
 
       self.get('controllers.currentUser').set('content', user);
       self.transitionToRoute('index');

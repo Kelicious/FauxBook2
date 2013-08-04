@@ -9,6 +9,8 @@ App.Router.map(function() {
     this.route('new');
     this.route('destroy');
   });
+
+  this.route('profile_picture');
 });
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -21,7 +23,8 @@ App.IndexRoute = Ember.Route.extend({
 
 App.UsersNewRoute = Ember.Route.extend({
   model: function() {
-    return App.User.createRecord();
+    var user = App.User.createRecord();
+    return user;
   },
 
   setupController: function(controller, model) {
@@ -52,13 +55,10 @@ App.SessionsDestroyRoute = Ember.Route.extend({
       }
     });
 
-    // App.Session.find('current').then(function(session) {
-    //   alert("HELLO");
-    //   session.deleteRecord();
-    //   session.save();
-    //   controller.store.commit();
-    // });
-
     this.transitionTo('index');
   }
+});
+
+App.ProfilePictureRoute = Ember.Route.extend({
+  
 });
