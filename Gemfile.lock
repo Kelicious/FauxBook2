@@ -31,6 +31,10 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    aws-sdk (1.11.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     barber (0.4.2)
       ember-source
       execjs
@@ -39,6 +43,10 @@ GEM
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     columnize (0.3.6)
     debugger (1.6.1)
       columnize (>= 0.3.1)
@@ -78,8 +86,17 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
+    mini_portile (0.5.1)
     multi_json (1.7.7)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
+    paperclip (3.4.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -126,6 +143,7 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -134,12 +152,14 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  aws-sdk
   bootstrap-sass
   debugger
   devise
   ember-rails
   ember-source (= 1.0.0.rc6.2)
   jquery-rails
+  paperclip
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3

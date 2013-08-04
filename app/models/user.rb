@@ -13,4 +13,15 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   validates :first_name, :last_name, :birth_date, :gender, presence: true
+
+  # pictures
+  attr_accessible :profile_picture
+  has_attached_file :profile_picture, :styles => {
+    :big => "300x300>",
+    :small => "50x50#"
+  }
+
+  def profile_picture_url
+    profile_picture.url
+  end
 end

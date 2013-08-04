@@ -16,8 +16,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    p params
     if current_user.update_attributes(params[:user])
-      render json: current_users
+      render json: current_user
     else
       render json: user, status: :unprocessable_entity
     end

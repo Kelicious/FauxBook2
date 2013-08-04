@@ -36,4 +36,14 @@ DeviseTest::Application.configure do
   config.assets.debug = true
 
   config.ember.variant = :development
+
+  # AWS S3
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'new_fbc_local',
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    }
+  }
 end

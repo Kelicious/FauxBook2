@@ -1,4 +1,6 @@
-<form method="post" enctype="multipart/form-data"  action="upload.php">  
-  <input type="file" name="images" id="images">  
-  <button type="submit" id="btn">Upload File!</button>  
-</form>  
+<form method="post" enctype="multipart/form-data" action="/users/current">
+  <input name="authenticity_token" type="hidden" value="">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="file" name="user[profile_picture]">
+  <button type="submit" class="btn">Upload File!</button>
+</form>

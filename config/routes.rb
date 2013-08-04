@@ -1,7 +1,7 @@
 DeviseTest::Application.routes.draw do
   root to: 'root#index'
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :update]
   resources :sessions, only: [:create, :destroy]
   resources :profiles, only: [:create]
 

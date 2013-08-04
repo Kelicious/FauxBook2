@@ -5,6 +5,8 @@ gem 'devise'
 gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc6.2'
 gem 'active_model_serializers'
+gem 'paperclip'
+gem 'aws-sdk'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
