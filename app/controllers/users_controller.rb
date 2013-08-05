@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: current_user
+    user = params[:id] == 'current' ? current_user : User.find(params[:id])
+    render json: user
   end
 
   def update

@@ -5,6 +5,10 @@ App.Router.map(function() {
     this.route('new');
   });
 
+  this.resource('user', {path: 'users/:user_id'}, function () {
+
+  });
+
   this.resource('sessions', function () {
     this.route('new');
     this.route('destroy');
@@ -61,4 +65,10 @@ App.SessionsDestroyRoute = Ember.Route.extend({
 
 App.ProfilePictureRoute = Ember.Route.extend({
   
+});
+
+App.UserRoute = Ember.Route.extend({
+  model: function (params) {
+    return App.User.find(params.user_id);
+  }
 });

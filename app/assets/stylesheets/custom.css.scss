@@ -1,3 +1,31 @@
 #sidebar, #main-content {
   margin-top: 45px;
+  padding: 0;
+}
+
+#page-content {
+  padding: 0;
+}
+
+.photo-block {
+  position: relative;
+
+  .cover-picture {
+    width: 100%;
+    height: 250px;
+  }
+
+  .profile-picture {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    border: 5px solid white;
+  }
+
+  .name-link {
+    position: absolute;
+    bottom: 25px;
+    left: 275px;
+    color: white;
+  }
 }

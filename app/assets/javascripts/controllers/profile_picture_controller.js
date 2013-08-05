@@ -8,7 +8,6 @@ App.ProfilePictureController = Ember.ObjectController.extend({
       success: function (response) {
         self.get('controllers.currentUser.content')
           .setProperties('profilePictureUrl', response.user.profile_picture_url);
-        console.log(self.get('controllers.currentUser.content'));
       },
       error: function (response) {
         console.log(response);
@@ -22,7 +21,6 @@ App.ProfilePictureController = Ember.ObjectController.extend({
       success: function (response) {
         self.get('controllers.currentUser.content')
           .set('coverPictureUrl', response.user.cover_picture_url);
-        console.log(self.get('controllers.currentUser.content'));
       },
       error: function (response) {
         console.log(response);

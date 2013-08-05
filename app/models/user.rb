@@ -17,20 +17,20 @@ class User < ActiveRecord::Base
   # pictures
   attr_accessible :profile_picture
   has_attached_file :profile_picture, :styles => {
-    :big => "300x300>",
+    :big => "200x200>",
     :small => "50x50>"
   }
 
   attr_accessible :cover_picture
   has_attached_file :cover_picture, :styles => {
-    :big => "1000x250>",
+    :big => "1000x250#",
   }
 
   def profile_picture_url
-    profile_picture.url
+    profile_picture.url(:big)
   end
 
   def cover_picture_url
-    cover_picture.url
+    cover_picture.url(:big)
   end
 end
