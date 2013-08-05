@@ -1,8 +1,14 @@
 App.ProfilePictureController = Ember.ObjectController.extend({
+  needs: ['currentUser'],
+
   uploadProfilePicture: function () {
+    var self = this;
+
     $('#profile-picture-form').ajaxForm().ajaxSubmit({
       success: function (response) {
-        console.log(response);
+        self.get('controllers.currentUser.content')
+          .setProperties('profilePictureUrl', response.user.profile_picture_url);
+        console.log(self.get('controllers.currentUser.content'));
       },
       error: function (response) {
         console.log(response);
@@ -11,9 +17,12 @@ App.ProfilePictureController = Ember.ObjectController.extend({
   },
 
   uploadCoverPicture: function () {
+    var self = this;
     $('#cover-picture-form').ajaxForm().ajaxSubmit({
       success: function (response) {
-        console.log(response);
+        self.get('controllers.currentUser.content')
+          .set('coverPictureUrl', response.user.cover_picture_url);
+        console.log(self.get('controllers.currentUser.content'));
       },
       error: function (response) {
         console.log(response);
