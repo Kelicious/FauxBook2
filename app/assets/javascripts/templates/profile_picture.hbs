@@ -1,6 +1,13 @@
-<form method="post" enctype="multipart/form-data" action="/users/current" id="picture-form">
+<form method="post" enctype="multipart/form-data" action="/users/current" id="profile-picture-form">
   <input name="authenticity_token" type="hidden" value="">
   <input type="hidden" name="_method" value="PUT">
   <input type="file" name="user[profile_picture]">
-  <button type="submit" class="btn" {{action "uploadPicture"}}>Upload File!</button>
+  <button type="submit" class="btn" {{action "uploadProfilePicture"}}>Upload File!</button>
+</form>
+
+<form method="post" enctype="multipart/form-data" action="/users/current" id="cover-picture-form">
+  <input name="authenticity_token" type="hidden" value="">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="file" name="user[cover_picture]">
+  <button type="submit" class="btn" {{action "uploadCoverPicture"}}>Upload File!</button>
 </form>

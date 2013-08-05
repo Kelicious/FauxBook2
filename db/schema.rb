@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130804221059) do
+ActiveRecord::Schema.define(:version => 20130805140437) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                        :default => "", :null => false
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(:version => 20130804221059) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.string   "cover_picture_file_name"
+    t.string   "cover_picture_content_type"
+    t.integer  "cover_picture_file_size"
+    t.datetime "cover_picture_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
