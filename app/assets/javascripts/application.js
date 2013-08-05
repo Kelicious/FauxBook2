@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.form
 //= require ace
 //= require ace-elements
 //= require bootstrap
