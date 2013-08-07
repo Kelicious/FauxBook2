@@ -1,9 +1,23 @@
-#sidebar, #main-content {
+pre {
+  border: none;
+  background-color: white;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+#sidebar, .main-content {
   margin-top: 45px;
   padding: 0;
 }
 
-#page-content {
+.page-content {
   padding: 0;
 }
 
@@ -22,10 +36,35 @@
     border: 5px solid white;
   }
 
-  .name-link {
-    position: absolute;
-    bottom: 25px;
-    left: 275px;
-    color: white;
+  > h2 {
+    margin: 0;
+
+    > .name-link {
+      position: absolute;
+      bottom: 25px;
+      left: 275px;
+      color: white;
+    }
+  }
+}
+
+.content-block {
+  margin: 0;
+
+  .profile-tab-group {
+    float: left;
+  }
+}
+
+.info-page {
+  margin: 0 10px;
+
+  .info-header {
+    margin: 0;
+    padding: 10px;
+    
+    h1 {
+      margin: 0;
+    }
   }
 }

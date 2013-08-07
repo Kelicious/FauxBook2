@@ -1,0 +1,16 @@
+<article class="info-page">
+  <section class="page-header info-header">
+    <h1>Info</h1>
+  </section>
+  {{#with controllers.user}}
+  <section class="info-body">
+    <section class="row-fluid">
+      {{partial 'user/basic_info'}}
+      {{partial 'user/favorite_quotes'}}
+    </section>
+    <section class="row-fluid">
+      {{partial 'user/about'}}
+    </section>
+  </section>
+  {{/with}}
+</article>

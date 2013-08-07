@@ -11,6 +11,7 @@ App.User = DS.Model.extend({
   religiousViews: DS.attr('string'),
   lookingFor: DS.attr('string'),
   interestedIn: DS.attr('string'),
+  favoriteQuotes: DS.attr('string'),
   profilePictureUrl: DS.attr('string'),
   coverPictureUrl: DS.attr('string'),
 

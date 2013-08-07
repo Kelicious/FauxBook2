@@ -5,3 +5,26 @@
     {{#linkTo 'user' model class="name-link"}}{{name}}{{/linkTo}}
   </h2>
 </section>
+<section class="content-block widget-box">
+  <section class="widget-header clearfix">
+    <section class="widget-toolbar no-border profile-tab-group">
+      <ul class="nav nav-tabs">
+        <li>
+          <a href="#">Timeline</a>
+        </li>
+        <li>
+          {{#linkTo 'user.info' model}}About{{/linkTo}}
+        </li>
+        <li>
+          <a href="#">Friends</a>
+        </li>
+        <li>
+          <a href="#">Pictures</a>
+        </li>
+      </ul>
+    </section>
+  </section>
+  <section class="widget-body">
+    {{outlet}}
+  </section>
+</section>
