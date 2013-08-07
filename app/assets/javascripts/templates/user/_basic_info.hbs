@@ -8,7 +8,11 @@
         Birth Date
       </section>
       <section class="profile-info-value">
+        {{#if isEditingInfo}}
+        {{view App.DateField valueBinding="birthDate"}}
+        {{else}}
         <span>{{birthDate}}</span>
+        {{/if}}
       </section>
     </section>
     <section class="profile-info-row">
@@ -16,7 +20,11 @@
         Gender
       </section>
       <section class="profile-info-value">
+        {{#if isEditingInfo}}
+        {{view Ember.TextField valueBinding='gender'}}
+        {{else}}
         <span>{{gender}}</span>
+        {{/if}}
       </section>
     </section>
     <section class="profile-info-row">
@@ -24,7 +32,11 @@
         Religious Views
       </section>
       <section class="profile-info-value">
+        {{#if isEditingInfo}}
+        {{view Ember.TextField valueBinding='religiousViews'}}
+        {{else}}
         <span>{{religiousViews}}</span>
+        {{/if}}
       </section>
     </section>
     <section class="profile-info-row">
@@ -32,7 +44,11 @@
         Political Views
       </section>
       <section class="profile-info-value">
+        {{#if isEditingInfo}}
+        {{view Ember.TextField valueBinding='politicalViews'}}
+        {{else}}
         <span>{{politicalViews}}</span>
+        {{/if}}
       </section>
     </section>
     <section class="profile-info-row">
@@ -40,7 +56,11 @@
         Looking For
       </section>
       <section class="profile-info-value">
+        {{#if isEditingInfo}}
+        {{view Ember.TextField valueBinding='lookingFor'}}
+        {{else}}
         <span>{{lookingFor}}</span>
+        {{/if}}
       </section>
     </section>
     <section class="profile-info-row">
@@ -48,7 +68,11 @@
         Interested In
       </section>
       <section class="profile-info-value">
+        {{#if isEditingInfo}}
+        {{view Ember.TextField valueBinding='interestedIn'}}
+        {{else}}
         <span>{{interestedIn}}</span>
+        {{/if}}
       </section>
     </section>
   </section>

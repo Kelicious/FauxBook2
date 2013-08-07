@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    p params
     if current_user.update_attributes(params[:user])
       render json: current_user
     else

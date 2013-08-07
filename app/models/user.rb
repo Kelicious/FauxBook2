@@ -33,4 +33,9 @@ class User < ActiveRecord::Base
   def cover_picture_url
     cover_picture.url(:big)
   end
+
+  # hack needed to get ember data to sync
+  attr_accessible :profile_picture_url, :cover_picture_url
+  def profile_picture_url=(value) end
+  def cover_picture_url=(value) end
 end

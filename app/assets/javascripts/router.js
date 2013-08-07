@@ -16,8 +16,6 @@ App.Router.map(function() {
     this.route('new');
     this.route('destroy');
   });
-
-  this.route('profile_picture');
 });
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -64,10 +62,6 @@ App.SessionsDestroyRoute = Ember.Route.extend({
 
     this.transitionTo('index');
   }
-});
-
-App.ProfilePictureRoute = Ember.Route.extend({
-  
 });
 
 App.UserRoute = Ember.Route.extend({

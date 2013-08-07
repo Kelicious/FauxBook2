@@ -21,9 +21,23 @@
         <li>
           <a href="#">Pictures</a>
         </li>
+        {{#if isCurrentUser}}
+        <li>
+          {{#if isEditingPictures}}
+          <a href="#" {{action "doneEditingPictures"}}>Done Editing</a>
+          {{else}}
+          <a href="#" {{action "editPictures"}}>Edit Pictures</a>
+          {{/if}}
+        </li>
+        {{/if}}
       </ul>
     </section>
   </section>
+  {{#if isEditingPictures}}
+  <section class="widget-body">
+    {{partial 'profile_picture'}}
+  </section>
+  {{/if}}
   <section class="widget-body">
     {{outlet}}
   </section>

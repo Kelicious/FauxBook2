@@ -1,8 +1,15 @@
+{{#with controllers.user}}
 <article class="info-page">
   <section class="page-header info-header">
     <h1>Info</h1>
+    {{#if isCurrentUser}}
+    {{#if isEditingInfo}}
+    <button class="btn" {{action "doneEditingInfo"}}>Save</button>
+    {{else}}
+    <button class="btn" {{action "editInfo"}}>Edit</button>
+    {{/if}}
+    {{/if}}
   </section>
-  {{#with controllers.user}}
   <section class="info-body">
     <section class="row-fluid">
       {{partial 'user/basic_info'}}
@@ -12,5 +19,5 @@
       {{partial 'user/about'}}
     </section>
   </section>
-  {{/with}}
 </article>
+{{/with}}
