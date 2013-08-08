@@ -1,6 +1,6 @@
 {{#with controllers.user}}
-<article class="info-page">
-  <section class="page-header info-header">
+<article class="user-info-page">
+  <section class="page-header user-info-header">
     <h1>Info</h1>
     {{#if isCurrentUser}}
     {{#if isEditingInfo}}
@@ -10,7 +10,7 @@
     {{/if}}
     {{/if}}
   </section>
-  <section class="info-body">
+  <section class="user-info-body">
     <section class="row-fluid">
       {{partial 'user/basic_info'}}
       {{partial 'user/favorite_quotes'}}

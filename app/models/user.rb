@@ -26,16 +26,31 @@ class User < ActiveRecord::Base
     :big => "1000x250#",
   }
 
-  def profile_picture_url
+  def profile_picture_url_big
     profile_picture.url(:big)
+  end
+
+  def profile_picture_url_small
+    profile_picture.url(:small)
   end
 
   def cover_picture_url
     cover_picture.url(:big)
   end
 
-  # hack needed to get ember data to sync
-  attr_accessible :profile_picture_url, :cover_picture_url
-  def profile_picture_url=(value) end
+  # hack needed to prevent mass assignment error when ember data syncs
+  attr_accessible :profile_picture_url_big, :cover_picture_url
+  attr_accessible :profile_picture_url_small
+  def profile_picture_url_big=(value) end
+  def profile_picture_url_small=(value) end
   def cover_picture_url=(value) end
+
+  # friend-related stuff
+  has_many :incoming_friend_requests, foreign_key: "recipient_id", class_name: "FriendRequest"
+  has_many :outgoing_friend_requests, foreign_key: "sender_id", class_name: "FriendRequest"
+  has_many :friend_request_recipients, through: :outgoing_friend_requests, source: :recipient
+  has_many :friend_request_senders, through: :incoming_friend_requests, source: :sender
+
+  has_many :friendships
+  has_many :friends, through: :friendships
 end

@@ -1,6 +1,6 @@
 <section class="photo-block">
   <img class="cover-picture" {{bindAttr src="coverPictureUrl"}} alt="Cover Picture">
-  <img class="profile-picture" {{bindAttr src="profilePictureUrl"}} alt="Profile Picture">
+  <img class="profile-picture" {{bindAttr src="profilePictureUrlBig"}} alt="Profile Picture">
   <h2>
     {{#linkTo 'user' model class="name-link"}}{{name}}{{/linkTo}}
   </h2>
@@ -16,7 +16,7 @@
           {{#linkTo 'user.info' model}}About{{/linkTo}}
         </li>
         <li>
-          <a href="#">Friends</a>
+          {{#linkTo 'user.friends' model}}Friends{{/linkTo}}
         </li>
         <li>
           <a href="#">Pictures</a>

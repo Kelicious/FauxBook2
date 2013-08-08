@@ -1,0 +1,10 @@
+<section class="user-small row-fluid">
+  <section class="span2">
+    <img class="profile-picture-small" {{bindAttr src="profilePictureUrlSmall"}} alt="name">
+  </section>
+  <section class="span4">
+    <section class="user-name">
+      {{#linkTo 'user' this}}{{name}}{{/linkTo}}
+    </section>
+  </section>
+</section>

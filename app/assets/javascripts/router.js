@@ -69,3 +69,11 @@ App.UserRoute = Ember.Route.extend({
     return App.User.find(params.user_id);
   }
 });
+
+App.UserFriendsRoute = Ember.Route.extend({
+  model: function (params) {
+    var user = this.modelFor('user');
+    var friends = user.get('friends');
+    return friends;
+  }
+});

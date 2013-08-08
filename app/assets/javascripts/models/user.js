@@ -12,8 +12,12 @@ App.User = DS.Model.extend({
   lookingFor: DS.attr('string'),
   interestedIn: DS.attr('string'),
   favoriteQuotes: DS.attr('string'),
-  profilePictureUrl: DS.attr('string'),
+  profilePictureUrlBig: DS.attr('string'),
+  profilePictureUrlSmall: DS.attr('string'),
   coverPictureUrl: DS.attr('string'),
+  friendRequestRecipients: DS.hasMany('App.User'),
+  friendRequestSenders: DS.hasMany('App.User'),
+  friends: DS.hasMany('App.User'),
 
   name: function () {
     return this.get('firstName') + ' ' + this.get('lastName');

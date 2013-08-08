@@ -4,8 +4,8 @@ App.UserController = Ember.ObjectController.extend({
   isEditingInfo: false,
 
   isCurrentUser: function () {
-    return this.get('email') == this.get('controllers.currentUser.name');
-  },
+    return this.get('email') == this.get('controllers.currentUser.email');
+  }.property('controllers.currentUser.email', 'email'),
 
   editPictures: function () {
     this.set('isEditingPictures', true);
