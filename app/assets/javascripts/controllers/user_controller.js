@@ -5,7 +5,12 @@ App.UserController = Ember.ObjectController.extend({
 
   isCurrentUser: function () {
     return this.get('email') == this.get('controllers.currentUser.email');
-  }.property('controllers.currentUser.email', 'email'),
+  }.property('controllers.currentUser', 'model'),
+
+  switchUserCallback: function () {
+    this.set('isEditingInfo', false);
+    this.set('isEditingPictures', false);
+  }.observes('model', 'controllers.currentUser'),
 
   editPictures: function () {
     this.set('isEditingPictures', true);
