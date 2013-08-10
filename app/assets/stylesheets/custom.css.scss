@@ -69,3 +69,18 @@ pre {
     }
   }
 }
+
+.user-small {
+  margin: 10px;
+  display: inline-block;
+  width: 500px;
+
+  .profile-picture-small {
+    width: 80px;
+    height: 80px;
+  }
+
+  > .friend-buttons > button {
+    width: 100%;
+  }
+}

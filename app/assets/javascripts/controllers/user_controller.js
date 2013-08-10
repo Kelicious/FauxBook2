@@ -53,5 +53,92 @@ App.UserController = Ember.ObjectController.extend({
         console.log(response);
       }
     });
+  },
+
+  numFriends: function () {
+    return this.get('model.friends.length');
+  }.property('model.friends.@each'),
+
+  isFriend: function () {
+    var friends = this.get('controllers.currentUser.model.friends')
+          .filterProperty('id', this.get('id'));
+
+    return friends.get('length') > 0;
+  }.property('model', 'controllers.currentUser.model.friends.@each'),
+
+  isFriendRequestSender: function () {
+    var senders = this
+          .get('controllers.currentUser.model.friendRequestSenders')
+          .filterProperty('id', this.get('id'));
+
+    return senders.get('length') > 0;
+  }.property('model', 'controllers.currentUser.model.friendRequestSenders.@each'),
+
+  isFriendRequestRecipient: function () {
+    var recipients = this
+          .get('controllers.currentUser.model.friendRequestRecipients')
+          .filterProperty('id', this.get('id'));
+
+    return recipients.get('length') > 0;
+  }.property('model', 'controllers.currentUser.model.friendRequestRecipients.@each'),
+
+  addFriend: function () {
+    var that = this;
+
+    $.post('/users/' + this.get('id') + '/friend_request')
+      .done(function (response) {
+        that.get('model').reload();
+        that.get('controllers.currentUser.model').reload();
+      }).fail(function () {
+        console.log("addFriend failed");
+      });
+  },
+
+  cancelFriendRequest: function () {
+    var that = this;
+
+    $.post('/users/' + this.get('id') + '/cancel_request')
+      .done(function (response) {
+        that.get('model').reload();
+        that.get('controllers.currentUser.model').reload();
+      }).fail(function () {
+        console.log("addFriend failed");
+      });
+  },
+
+  acceptFriendRequest: function () {
+    var that = this;
+
+    $.post('/users/' + this.get('id') + '/accept_request')
+      .done(function (response) {
+        that.get('model').reload();
+        that.get('controllers.currentUser.model').reload();
+      }).fail(function () {
+        console.log("acceptFriendRequest failed");
+      });
+  },
+
+  rejectFriendRequest: function () {
+    var that = this;
+
+    $.post('/users/' + this.get('id') + '/reject_request')
+      .done(function (response) {
+        that.get('model').reload();
+        that.get('controllers.currentUser.model').reload();
+      }).fail(function () {
+        console.log("acceptFriendRequest failed");
+      });
+  },
+
+  removeFriend: function () {
+    var that = this;
+
+    $.post('/users/' + this.get('id') + '/unfriend')
+      .done(function (response) {
+        that.get('model').reload();
+        that.get('controllers.currentUser.model').reload();
+      }).fail(function () {
+        console.log("removeFriend failed");
+      });
   }
 });

@@ -31,4 +31,34 @@ class UsersController < ApplicationController
       render json: user, status: :unprocessable_entity
     end
   end
+
+  def friend_request
+    user = User.find(params[:user_id])
+    current_user.friend_request_recipients << user
+    render json: user
+  end
+
+  def cancel_request
+    user = User.find(params[:user_id])
+    current_user.outgoing_friend_requests.find_by_recipient_id(user.id).destroy
+    render json: user
+  end
+
+  def accept_request
+    user = User.find(params[:user_id])
+    current_user.incoming_friend_requests.find_by_sender_id(user.id).approve!
+    render json: user
+  end
+
+  def reject_request
+    user = User.find(params[:user_id])
+    current_user.incoming_friend_requests.find_by_sender_id(user.id).destroy
+    render json: user
+  end
+
+  def unfriend
+    user = User.find(params[:user_id])
+    user.friendships.find_by_friend_id(current_user.id).destroy!
+    render json: user
+  end
 end

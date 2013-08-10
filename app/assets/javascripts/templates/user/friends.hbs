@@ -3,7 +3,7 @@
     <h1>{{controllers.user.firstName}}'s Friends</h1>
   </section>
   <section class="user-friends-body">
-    {{#each controller}}
+    {{#each controller itemController="user"}}
     {{partial 'user'}}
     {{/each}}
   </section>

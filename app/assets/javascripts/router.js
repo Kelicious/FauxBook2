@@ -26,6 +26,12 @@ App.IndexRoute = Ember.Route.extend({
   
 });
 
+App.UsersRoute = Ember.Route.extend({
+  model: function () {
+    return App.User.find();
+  }
+});
+
 App.UsersNewRoute = Ember.Route.extend({
   model: function() {
     var user = App.User.createRecord();
@@ -55,9 +61,7 @@ App.SessionsDestroyRoute = Ember.Route.extend({
     $.ajax({
       type: 'DELETE',
       url: '/sessions/current',
-      success: function (response) {
-
-      }
+      success: function (response) {}
     });
 
     this.transitionTo('index');

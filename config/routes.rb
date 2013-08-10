@@ -1,7 +1,13 @@
 DeviseTest::Application.routes.draw do
   root to: 'root#index'
 
-  resources :users, only: [:index, :create, :show, :update]
+  resources :users, only: [:index, :create, :show, :update] do
+    post 'friend_request'
+    post 'cancel_request'
+    post 'accept_request'
+    post 'reject_request'
+    post 'unfriend'
+  end
   resources :sessions, only: [:create, :destroy]
   resources :profiles, only: [:create]
 
