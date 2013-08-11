@@ -9,7 +9,7 @@ App.Router.map(function() {
     this.route('info');
     this.route('friends');
     this.route('pictures');
-    this.route('timeline');
+    this.route('posts');
   });
 
   this.resource('sessions', function () {
@@ -82,10 +82,12 @@ App.UserFriendsRoute = Ember.Route.extend({
   }
 });
 
-App.UserTimelineRoute = Ember.Route.extend({
+App.UserPostsRoute = Ember.Route.extend({
   model: function (params) {
     var user = this.modelFor('user');
-    var posts = user.get('wallPosts');
+    console.log(user);
+    var posts = user.get('posts');
+    console.log(posts);
     return posts;
   }
 });

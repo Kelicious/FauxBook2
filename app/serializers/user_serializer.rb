@@ -12,5 +12,5 @@ class UserSerializer < ActiveModel::Serializer
   attributes :friend_ids
 
   # posts
-  attributes :wall_post_ids
+  attributes :post_ids
 end

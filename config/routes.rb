@@ -9,7 +9,7 @@ DeviseTest::Application.routes.draw do
     post 'unfriend'
   end
   resources :sessions, only: [:create, :destroy]
-  resources :posts, only: [:index, :create]
+  resources :posts, only: [:index, :create, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
