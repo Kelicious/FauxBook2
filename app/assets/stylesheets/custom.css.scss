@@ -17,7 +17,7 @@ pre {
   padding: 0;
 }
 
-.page-content {
+section.page-content {
   padding: 0;
 }
 
@@ -82,5 +82,21 @@ pre {
 
   > .friend-buttons > button {
     width: 100%;
+  }
+}
+
+article.post {
+  > .head {
+    > section {
+      float: left;
+      margin: 5px;
+    }
+
+    > .poster-info {
+      > img {
+        width: 50px;
+        height: 50px;
+      }
+    }
   }
 }

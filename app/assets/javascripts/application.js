@@ -28,14 +28,6 @@ App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
-Ember.onerror = function(error) {
-  Em.$.ajax('/error-notification', 'POST', {
-    stack: error.stack,
-    otherInformation: 'exception message'
-  });
-};
-
-
 Ember.Application.initializer({
   name: 'currentUser',
 

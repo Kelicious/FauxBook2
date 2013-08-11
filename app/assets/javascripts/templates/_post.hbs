@@ -1,0 +1,23 @@
+<article class="post span6">
+  <section class="head clearfix">
+    <section class="picture">
+      <img class="profile-picture-tiny" {{bindAttr src="author.profilePictureUrlSmall"}}>
+    </section>
+    <section class="poster-info">
+      <section class="author-and-user">
+        <!-- linkTo causes error so use manual anchor tag instead -->
+        <a {{bindAttr href="author.urlHack"}}>{{author.name}}</a> &gt;
+        <a {{bindAttr href="user.urlHack"}}>{{user.name}}</a>
+      </section>
+      <section>
+        <time>{{createdAt}}</time>
+      </section>
+    </section>
+  </section>
+  <section class="body">
+    {{body}}
+  </section>
+  <section class="comments">
+    
+  </section>
+</article>

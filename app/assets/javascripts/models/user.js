@@ -18,9 +18,14 @@ App.User = DS.Model.extend({
   friendRequestRecipients: DS.hasMany('App.User'),
   friendRequestSenders: DS.hasMany('App.User'),
   friends: DS.hasMany('App.User'),
-  posts: DS.hasMany('App.Post'),
+  wallPosts: DS.hasMany('App.Post'),
 
   name: function () {
     return this.get('firstName') + ' ' + this.get('lastName');
-  }.property('firstName', 'lastName')
+  }.property('firstName', 'lastName'),
+
+  // need this since linkTo doesn't work right
+  urlHack: function () {
+    return "#/users/" + this.get('id');
+  }.property('id')
 });

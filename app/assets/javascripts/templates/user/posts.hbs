@@ -1,1 +1,15 @@
-<h1>Hello world</h1>
+<article class="user-timeline-page">
+  <section class="page-header user-timeline-header">
+    <h1>{{controllers.user.firstName}}'s Wall</h1>
+  </section>
+  <section class="timeline-body row">
+    <section class="new-post span6">
+      {{view Ember.TextArea id="new-post" placeholder="Write on my wall!"
+      valueBinding="newPostBody"}}
+      <button {{action "createPost"}}>Post</button>
+    </section>
+    {{#each controller}}
+    {{partial 'post'}}
+    {{/each}}
+  </section>
+</article>

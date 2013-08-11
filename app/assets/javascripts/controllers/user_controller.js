@@ -3,6 +3,7 @@ App.UserController = Ember.ObjectController.extend({
   isEditingPictures: false,
   isEditingInfo: false,
 
+  // Hack needed because linkTo doesn't upate its href on model change
   timelinePath: function () {
     return "#/users/" + this.get('id') + "/timeline";
   }.property('id'),

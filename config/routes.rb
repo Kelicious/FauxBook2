@@ -7,9 +7,11 @@ DeviseTest::Application.routes.draw do
     post 'accept_request'
     post 'reject_request'
     post 'unfriend'
+
+    resources :posts, only: [:create]
   end
   resources :sessions, only: [:create, :destroy]
-  resources :posts, only: [:index, :create, :show]
+  resources :posts, only: [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

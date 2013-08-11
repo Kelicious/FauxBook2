@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def create
     post = current_user.authored_posts.new(params[:post])
-    post.user_id = params[:user_id]
+    post.user_id = params[:user_id] if params[:user_id]
     post.save
     render json: post
   end
