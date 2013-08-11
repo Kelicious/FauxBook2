@@ -53,4 +53,12 @@ class User < ActiveRecord::Base
 
   has_many :friendships
   has_many :friends, through: :friendships
+
+  def is_friend_of?(other_user)
+    friend_ids.include?(other_user.id)
+  end
+
+  # post-related stuff
+  has_many :authored_posts, class_name: "Post", foreign_key: "author_id", inverse_of: :author
+  has_many :wall_posts, class_name: "Post", inverse_of: :user
 end

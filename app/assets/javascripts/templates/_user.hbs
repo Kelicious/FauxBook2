@@ -1,8 +1,8 @@
 <section class="user-small row-fluid">
-  <section class="span3">
+  <section class="span4">
     <img class="profile-picture-small" {{bindAttr src="profilePictureUrlBig"}} alt="name">
   </section>
-  <section class="span3">
+  <section class="span4">
     <section class="user-name">
       <h4>
         {{#linkTo 'user' this}}{{name}}{{/linkTo}}
@@ -14,11 +14,11 @@
       {{/linkTo}}
     </section>
   </section>
-  <section class="friend-buttons span6">
+  <section class="friend-buttons span4">
     {{#if isCurrentUser}}
     {{else}}
     {{#if isFriend}}
-    <button class="remove-from-friends" {{action "removeFriend"}}>
+    <button class="btn btn-small btn-danger remove-from-friends" {{action "removeFriend"}}>
       Remove Friend
     </button>
     {{else}}

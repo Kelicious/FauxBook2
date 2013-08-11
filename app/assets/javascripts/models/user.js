@@ -18,6 +18,7 @@ App.User = DS.Model.extend({
   friendRequestRecipients: DS.hasMany('App.User'),
   friendRequestSenders: DS.hasMany('App.User'),
   friends: DS.hasMany('App.User'),
+  wallPosts: DS.hasMany('App.Post'),
 
   name: function () {
     return this.get('firstName') + ' ' + this.get('lastName');

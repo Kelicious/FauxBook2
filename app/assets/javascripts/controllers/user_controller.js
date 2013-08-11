@@ -3,6 +3,18 @@ App.UserController = Ember.ObjectController.extend({
   isEditingPictures: false,
   isEditingInfo: false,
 
+  timelinePath: function () {
+    return "#/users/" + this.get('id') + "/timeline";
+  }.property('id'),
+
+  infoPath: function () {
+    return "#/users/" + this.get('id') + "/info";
+  }.property('id'),
+
+  friendsPath: function () {
+    return "#/users/" + this.get('id') + "/friends";
+  }.property('id'),
+
   isCurrentUser: function () {
     return this.get('email') == this.get('controllers.currentUser.email');
   }.property('controllers.currentUser', 'model'),

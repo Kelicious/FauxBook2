@@ -6,10 +6,10 @@ App.Router.map(function() {
   });
 
   this.resource('user', {path: 'users/:user_id'}, function () {
-    this.route('timeline');
     this.route('info');
     this.route('friends');
     this.route('pictures');
+    this.route('timeline');
   });
 
   this.resource('sessions', function () {
@@ -79,5 +79,13 @@ App.UserFriendsRoute = Ember.Route.extend({
     var user = this.modelFor('user');
     var friends = user.get('friends');
     return friends;
+  }
+});
+
+App.UserTimelineRoute = Ember.Route.extend({
+  model: function (params) {
+    var user = this.modelFor('user');
+    var posts = user.get('wallPosts');
+    return posts;
   }
 });

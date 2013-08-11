@@ -10,4 +10,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :friend_request_recipient_ids
   attributes :friend_request_sender_ids
   attributes :friend_ids
+
+  # posts
+  attributes :wall_post_ids
 end
