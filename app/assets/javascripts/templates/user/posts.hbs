@@ -8,7 +8,7 @@
       valueBinding="newPostBody"}}
       <button {{action "createPost"}}>Post</button>
     </section>
-    {{#each controller}}
+    {{#each controller itemController="post"}}
     {{partial 'post'}}
     {{/each}}
   </section>

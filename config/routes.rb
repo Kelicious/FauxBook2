@@ -10,9 +10,12 @@ DeviseTest::Application.routes.draw do
 
     resources :posts, only: [:create]
   end
-  resources :sessions, only: [:create, :destroy]
-  resources :posts, only: [:index, :show]
 
+  resources :sessions, only: [:create, :destroy]
+  resources :posts, only: [:index, :show] do
+    resources :comments, only: [:create]
+  end
+  resources :comments, only: [:index]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

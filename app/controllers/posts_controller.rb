@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    render json: Post.where(id: params[:ids])
+    posts = Post.where(id: params[:ids]).includes(:comments)
+    render json: posts
   end
 
   def create

@@ -85,7 +85,15 @@ section.page-content {
   }
 }
 
+section.timeline-body {
+  margin-left: 0;
+}
+
 article.post {
+  border: 1px solid #eee;
+  padding: 0;
+  margin: 10px;
+
   > .head {
     > section {
       float: left;
@@ -98,5 +106,25 @@ article.post {
         height: 50px;
       }
     }
+  }
+
+  > .body {
+    margin: 5px;
+  }
+}
+
+section.comment {
+  padding: 0;
+  margin: 5px;
+
+  > .head {
+    > section {
+      float: left;
+      margin: 5px;
+    }
+  }
+
+  > .body {
+    margin: 0 5px;
   }
 }

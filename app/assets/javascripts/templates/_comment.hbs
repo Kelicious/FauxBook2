@@ -1,0 +1,18 @@
+<section class="comment well well-small">
+  <section class="head clearfix">
+    <section class="picture">
+      <img class="profile-picture-tiny" {{bindAttr src="author.profilePictureUrlSmall"}}>
+    </section>
+    <section class="poster-info">
+      <section class="user">
+        <a {{bindAttr href="author.urlHack"}}>{{author.name}}</a>
+      </section>
+      <section>
+        <time>{{createdAt}}</time>
+      </section>
+    </section>
+  </section>
+  <section class="body">
+    {{body}}
+  </section>
+</section>
