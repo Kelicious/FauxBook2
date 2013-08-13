@@ -26,7 +26,23 @@ App.IndexRoute = Ember.Route.extend({
   
 });
 
-App.UsersRoute = Ember.Route.extend({
+App.AuthenticatedRoute = Ember.Route.extend({
+  beforeModel: function (transition) {
+
+    if (!this.controllerFor('currentUser').get('content.email')) {
+      this.redirectToLogin(transition);
+    }
+  },
+
+  redirectToLogin: function (transition) {
+    alert("You must log in!");
+
+    var sessionsNewController = this.controllerFor('sessionsNew');
+    this.transitionTo('sessions.new');
+  }
+});
+
+App.UsersRoute = App.AuthenticatedRoute.extend({
   model: function () {
     return App.User.find();
   }
@@ -58,6 +74,8 @@ App.SessionsDestroyRoute = Ember.Route.extend({
     var controller = this.controllerFor('currentUser');
     controller.set('content', undefined);
 
+    console.log("HELLO");
+
     $.ajax({
       type: 'DELETE',
       url: '/sessions/current',
@@ -65,16 +83,17 @@ App.SessionsDestroyRoute = Ember.Route.extend({
     });
 
     this.transitionTo('index');
+    console.log("HELLO");
   }
 });
 
-App.UserRoute = Ember.Route.extend({
+App.UserRoute = App.AuthenticatedRoute.extend({
   model: function (params) {
     return App.User.find(params.user_id);
   }
 });
 
-App.UserFriendsRoute = Ember.Route.extend({
+App.UserFriendsRoute = App.AuthenticatedRoute.extend({
   model: function (params) {
     var user = this.modelFor('user');
     var friends = user.get('friends');
@@ -82,7 +101,7 @@ App.UserFriendsRoute = Ember.Route.extend({
   }
 });
 
-App.UserPostsRoute = Ember.Route.extend({
+App.UserPostsRoute = App.AuthenticatedRoute.extend({
   model: function (params) {
     var user = this.modelFor('user');
     var posts = user.get('wallPosts');

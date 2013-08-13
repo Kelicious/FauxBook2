@@ -20,7 +20,7 @@
 //= require ember
 //= require ember-data
 //= require_self
-//= require devise_test
+//= require faux_book
 //= require_tree .
 
 // for more details see: http://emberjs.com/guides/application/
@@ -35,7 +35,7 @@ Ember.Application.initializer({
     var store = container.lookup('store:main');
     var user = App.User.find('current');
 
-    container.lookup('controller:currentUser').set('content', user);
+    container.lookup('controller:currentUser').set('content', user ? user: undefined);
     container.typeInjection('controller', 'currentUser', 'controller:currentUser');
   }
 });

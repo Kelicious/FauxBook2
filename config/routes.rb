@@ -1,4 +1,4 @@
-DeviseTest::Application.routes.draw do
+FauxBook::Application.routes.draw do
   root to: 'root#index'
 
   resources :users, only: [:index, :create, :show, :update] do
