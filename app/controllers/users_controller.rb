@@ -20,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = params[:id] == 'current' ? current_user : User.find(params[:id])
+    id = params[:id] == "current" ? current_user.id : params[:id]
+    user = User.where(id: id).includes(:friends,
+                                       :friend_request_recipients,
+                                       :friend_request_senders).first
+    # user = params[:id] == 'current' ? current_user : User.find(params[:id])
     render json: user
   end
 
