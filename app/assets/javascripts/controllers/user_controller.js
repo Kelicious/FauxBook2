@@ -46,8 +46,9 @@ App.UserController = Ember.ObjectController.extend({
     var self = this;
     $('#profile-picture-form').ajaxForm().ajaxSubmit({
       success: function (response) {
-        self.get('model')
-          .set('profilePictureUrl', response.user.profile_picture_url);
+        var user = self.get('model');
+        user.set('profilePictureUrlBig', response.user.profile_picture_url_big);
+        user.set('profilePictureUrlSmall', response.user.profile_picture_url_small);
       },
       error: function (response) {
         console.log(response);
