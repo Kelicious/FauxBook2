@@ -3,7 +3,7 @@
     <h1>{{controllers.user.firstName}}'s Wall</h1>
   </section>
   <section class="timeline-body row">
-    <section class="new-post span6">
+    <section class="post new-post span6">
       {{view Ember.TextArea id="new-post" placeholder="Write on my wall!"
       valueBinding="newPostBody"}}
       <button {{action "createPost"}}>Post</button>

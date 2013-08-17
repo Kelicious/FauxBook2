@@ -1,0 +1,32 @@
+.post {
+  border: 1px solid #eee;
+  padding: 0;
+  margin: 10px;
+
+  > .head {
+    > section {
+      float: left;
+      margin: 5px;
+    }
+
+    > .poster-info {
+      > img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  > .body {
+    margin: 5px;
+  }
+
+  &.new-post {
+    border: none;
+  }
+
+  > textarea {
+    width: 434px;
+    height: 128px;
+  }
+}

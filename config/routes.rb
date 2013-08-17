@@ -1,6 +1,8 @@
 FauxBook::Application.routes.draw do
   root to: 'root#index'
 
+  devise_for :users
+
   resources :users, only: [:index, :create, :show, :update] do
     post 'friend_request'
     post 'cancel_request'
@@ -11,7 +13,6 @@ FauxBook::Application.routes.draw do
     resources :posts, only: [:create]
   end
 
-  resources :sessions, only: [:create, :destroy]
   resources :posts, only: [:index, :show] do
     resources :comments, only: [:create]
   end

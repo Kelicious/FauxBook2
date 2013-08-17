@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DeviseTest::Application.load_tasks
+FauxBook::Application.load_tasks

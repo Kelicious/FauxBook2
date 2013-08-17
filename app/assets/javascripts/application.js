@@ -32,10 +32,17 @@ Ember.Application.initializer({
   name: 'currentUser',
 
   initialize: function(container) {
-    var store = container.lookup('store:main');
-    var user = App.User.find('current');
+    var store = container.lookup('store:main'),
+        attributes = $('meta[name="current-user"]').attr('content'),
+        user;
+    if (attributes) {
+      object = store.load(App.User, JSON.parse(attributes));
+      user = App.User.find(object.id);
+    } else {
+      user = App.User.find('current');
+    }
 
-    container.lookup('controller:currentUser').set('content', user ? user: undefined);
+    container.lookup('controller:currentUser').set('content', user);
     container.typeInjection('controller', 'currentUser', 'controller:currentUser');
   }
 });
