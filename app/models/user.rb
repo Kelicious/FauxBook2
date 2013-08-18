@@ -27,15 +27,15 @@ class User < ActiveRecord::Base
   }
 
   def profile_picture_url_big
-    profile_picture.url(:big)
+    profile_picture.exists? ? profile_picture.url(:big) : "/assets/missing.jpg"
   end
 
   def profile_picture_url_small
-    profile_picture.url(:small)
+    profile_picture.exists? ? profile_picture.url(:small) : "/assets/missing.jpg"
   end
 
   def cover_picture_url
-    cover_picture.url(:big)
+    cover_picture.exists? ? cover_picture.url(:big) : "/assets/cover-missing.jpg"
   end
 
   # hack needed to prevent mass assignment error when ember data syncs
