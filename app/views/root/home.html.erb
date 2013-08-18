@@ -1,0 +1,70 @@
+<article class="home-page">
+  <!-- <img src="/assets/bg.png" id="bg"> -->
+  <section class="welcome">
+    <h1>FauxBook</h1>
+    <section class="demo">
+      <h4>Demo User</h4>
+      <p>Email: a@a.com</p>
+      <p>Password: password</p>
+    </section>
+  </section>
+  <section class="sign-up">
+    <%= form_for(@user, url: registration_path('user'), html: {class: "form-horizontal sign-up-form"}) do |f| %>
+      <fieldset>
+        <div class="control-group">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <span class="help-inline"><%= @user.errors[:email].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+          <span class="help-inline"><%= @user.errors[:password].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation %>
+          <span class="help-inline"><%= @user.errors[:password_confirmation].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name %>
+          <span class="help-inline"><%= @user.errors[:first_name].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name %>
+          <span class="help-inline"><%= @user.errors[:last_name].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :gender %>
+          <%= f.text_field :gender %>
+          <span class="help-inline"><%= @user.errors[:gender].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :birth_date %>
+          <input type="date" name="user[birth_date]" id="user_birth_date">
+          <span class="help-inline"><%= @user.errors[:birth_date].join(', ') %></span>
+        </div>
+        <button type="submit" class="btn btn-large btn-primary">Sign Up</button>
+      </fieldset>
+    <% end %>
+  </section>
+  <section class="sign-in">
+    <%= form_for(@user, url: session_path('user'), html: {class: "form-horizontal sign-in-form"}) do |f| %>
+      <fieldset>
+        <div class="control-group">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <span class="help-inline"><%= @user.errors[:email].join(', ') %></span>
+        </div>
+        <div class="control-group">
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+          <span class="help-inline"><%= @user.errors[:password].join(', ') %></span>
+        </div>
+        <button type="submit" class="btn btn-large btn-primary">Sign In</button>
+      </fieldset>
+    <% end %>
+  </section>
+</article>

@@ -1,0 +1,46 @@
+<div class="container">
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <span class="help-inline"><%= @user.errors[:email].join(', ') %></span>
+    </div>
+    <div class="control-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <span class="help-inline"><%= @user.errors[:password].join(', ') %></span>
+    </div>
+    <div class="control-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+      <span class="help-inline"><%= @user.errors[:password_confirmation].join(', ') %></span>
+    </div>
+    <div class="control-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+      <span class="help-inline"><%= @user.errors[:first_name].join(', ') %></span>
+    </div>
+    <div class="control-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      <span class="help-inline"><%= @user.errors[:last_name].join(', ') %></span>
+    </div>
+    <div class="control-group">
+      <%= f.label :gender %>
+      <%= f.text_field :gender %>
+      <span class="help-inline"><%= @user.errors[:gender].join(', ') %></span>
+    </div>
+    <div class="control-group">
+      <%= f.label :birth_date %>
+      <input type="date" name="user[birth_date]" id="user_birth_date">
+      <span class="help-inline"><%= @user.errors[:birth_date].join(', ') %></span>
+    </div>
+    <button type="submit" class="btn btn-large btn-primary">Sign Up</button>
+  </fieldset>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
