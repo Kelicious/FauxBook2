@@ -1,0 +1,27 @@
+{{#if isCurrentUser}}
+{{else}}
+{{#if isFriend}}
+<button class="btn btn-small btn-danger remove-from-friends" {{action "removeFriend"}}>
+  Remove Friend
+</button>
+{{else}}
+{{#if isFriendRequestSender}}
+<button class="btn btn-small btn-success accept-friend-request" {{action "acceptFriendRequest"}}>
+  Accept Friend Request
+</button>
+<button class="btn btn-small btn-danger reject-friend-request" {{action "rejectFriendRequest"}}>
+  Reject Friend Request
+</button>
+{{else}}
+{{#if isFriendRequestRecipient}}
+<button class="btn btn-small btn-danger cancel-friend-request" {{action "cancelFriendRequest"}}>
+  Cancel Friend Request
+</button>
+{{else}}
+<button class="btn btn-small btn-success send-friend-request" {{action "addFriend"}}>
+  Add Friend
+</button>
+{{/if}}
+{{/if}}
+{{/if}}
+{{/if}}

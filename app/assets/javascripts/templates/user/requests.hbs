@@ -1,0 +1,10 @@
+<article class="user-requests-page">
+  <section class="page-header user-requests-header">
+    <h1>Pending Friend Requests</h1>
+  </section>
+  <section class="user-requests-body">
+    {{#each controller itemController="user"}}
+    {{partial 'user'}}
+    {{/each}}
+  </section>
+</article>

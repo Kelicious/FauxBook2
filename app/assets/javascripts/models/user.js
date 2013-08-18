@@ -27,5 +27,9 @@ App.User = DS.Model.extend({
   // need this since linkTo doesn't work right
   urlHack: function () {
     return "#/users/" + this.get('id');
-  }.property('id')
+  }.property('id'),
+
+  hasPendingFriendRequests: function () {
+    return this.get('friendRequestSenders.length');
+  }.property('friendRequestSenders.@each')
 });
