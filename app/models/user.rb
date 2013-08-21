@@ -59,8 +59,12 @@ class User < ActiveRecord::Base
     friend_ids.include?(other_user.id)
   end
 
-  # post-related stuff
+  # post related stuff
   has_many :authored_posts, class_name: "Post", foreign_key: "author_id", inverse_of: :author
   has_many :wall_posts, class_name: "Post", inverse_of: :user
   has_many :comments, foreign_key: "author_id", inverse_of: :author
+
+  # photo related stuff
+  has_many :albums, inverse_of: :user
+  has_many :photos, through: :albums
 end

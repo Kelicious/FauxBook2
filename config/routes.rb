@@ -17,6 +17,7 @@ FauxBook::Application.routes.draw do
     resources :comments, only: [:create]
   end
   resources :comments, only: [:index]
+  resources :albums, only: [:index, :create, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

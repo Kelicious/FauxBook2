@@ -13,4 +13,7 @@ class UserSerializer < ActiveModel::Serializer
 
   # posts
   attributes :wall_post_ids
+
+  # albums
+  attributes :album_ids
 end

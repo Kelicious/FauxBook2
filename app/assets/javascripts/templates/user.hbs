@@ -19,7 +19,7 @@
           <a {{bindAttr href="friendsPath"}}>Friends</a>
         </li>
         <li>
-          <a href="#">Pictures</a>
+          {{#linkTo 'user.albums' model}}Albums{{/linkTo}}
         </li>
         {{#if isCurrentUser}}
         <li>

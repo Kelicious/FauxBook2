@@ -9,7 +9,7 @@ App.Router.map(function() {
     this.route('info');
     this.route('friends');
     this.route('requests');
-    this.route('pictures');
+    this.route('albums');
     this.route('posts', {path: 'timeline'});
   });
 
@@ -107,6 +107,14 @@ App.UserRequestsRoute = App.AuthenticatedRoute.extend({
     var user = this.modelFor('user');
     var senders = user.get('friendRequestSenders');
     return senders;
+  }
+});
+
+App.UserAlbumsRoute = App.AuthenticatedRoute.extend({
+  model: function (params) {
+    var user = this.modelFor('user');
+    var albums = user.get('albums');
+    return albums;
   }
 });
 

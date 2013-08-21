@@ -1,0 +1,17 @@
+<article class="user-albums-page">
+  <section class="page-header user-albums-header">
+    <h1>{{controllers.user.firstName}}'s Albums</h1>
+  </section>
+  <section class="user-albums-body">
+    {{#if controllers.user.isCurrentUser}}
+    <section class="new-album">
+      {{view Ember.TextField id="new-album" placeholder="New Album Title"
+      valueBinding="newAlbumTitle"}}
+      <button class="btn" {{action "createAlbum"}}>Create Album</button>
+    </section>
+    {{/if}}
+    {{#each controller}}
+    {{title}}
+    {{/each}}
+  </section>
+</article>
