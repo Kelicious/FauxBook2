@@ -3,11 +3,16 @@
     <h1>{{title}}</h1>
   </section>
   <section class="album-body">
+    {{#if canEdit}}
     <form method="post" enctype="multipart/form-data" {{bindAttr action="formAction"}} id="photo-form">
       <input type="file" name="photo[picture]">
       <button type="submit" class="btn" {{action "uploadPhoto"}}>Upload Photo!</button>
     </form>
+    {{/if}}
     <section class="photos">
+      {{#if hasNoPhotos}}
+      This album has no photos.
+      {{/if}}
       {{#each photos itemController="photo"}}
       <img {{bindAttr src="pictureUrlSmall"}}>
       {{/each}}
