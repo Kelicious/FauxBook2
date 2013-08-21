@@ -7,11 +7,11 @@
     <section class="new-album">
       {{view Ember.TextField id="new-album" placeholder="New Album Title"
       valueBinding="newAlbumTitle"}}
-      <button class="btn" {{action "createAlbum"}}>Create Album</button>
+      <button class="btn btn-small" {{action "createAlbum"}}>Create Album</button>
     </section>
     {{/if}}
     {{#each controller}}
-    {{title}}
+    {{#linkTo 'album' this}}{{title}}{{/linkTo}}
     {{/each}}
   </section>
 </article>

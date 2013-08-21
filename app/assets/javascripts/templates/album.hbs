@@ -1,0 +1,16 @@
+<article class="album-page">
+  <section class="page-header albums-header">
+    <h1>{{title}}</h1>
+  </section>
+  <section class="album-body">
+    <form method="post" enctype="multipart/form-data" {{bindAttr action="formAction"}} id="photo-form">
+      <input type="file" name="photo[picture]">
+      <button type="submit" class="btn" {{action "uploadPhoto"}}>Upload Photo!</button>
+    </form>
+    <section class="photos">
+      {{#each photos itemController="photo"}}
+      <img {{bindAttr src="pictureUrlSmall"}}>
+      {{/each}}
+    </section>
+  </section>
+</article>
