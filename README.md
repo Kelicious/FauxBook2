@@ -25,7 +25,7 @@ remove the AWS configuration from config/development.rb.
 
 To Do
 =====
-* Add albums and photos
+* Finish photos
 * Make comments polymorphic so they can be added to photos as well
 * Block timeline from non-friends
 * Update ember to RC7
