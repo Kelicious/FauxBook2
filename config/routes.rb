@@ -16,9 +16,14 @@ FauxBook::Application.routes.draw do
   resources :posts, only: [:index, :show] do
     resources :comments, only: [:create]
   end
+
   resources :comments, only: [:index]
+
   resources :albums, only: [:index, :create, :show, :update] do
     resources :photos, only: [:create]
   end
-  resources :photos, only: [:index, :show, :update]
+
+  resources :photos, only: [:index, :show, :update] do
+    resources :comments, only: [:create]
+  end
 end

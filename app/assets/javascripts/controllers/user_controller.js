@@ -46,9 +46,7 @@ App.UserController = Ember.ObjectController.extend({
     var self = this;
     $('#profile-picture-form').ajaxForm().ajaxSubmit({
       success: function (response) {
-        var user = self.get('model');
-        user.set('profilePictureUrlBig', response.user.profile_picture_url_big);
-        user.set('profilePictureUrlSmall', response.user.profile_picture_url_small);
+        self.get('model').reload();
       },
       error: function (response) {
         console.log(response);
@@ -60,8 +58,7 @@ App.UserController = Ember.ObjectController.extend({
     var self = this;
     $('#cover-picture-form').ajaxForm().ajaxSubmit({
       success: function (response) {
-        self.get('model')
-          .set('coverPictureUrl', response.user.cover_picture_url);
+        self.get('model').reload();
       },
       error: function (response) {
         console.log(response);

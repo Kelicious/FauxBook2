@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :author, class_name: "User", inverse_of: :authored_posts
   belongs_to :user, inverse_of: :wall_posts
 
-  has_many :comments, inverse_of: :post, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :user_id, :author_id, :body, presence: true
 

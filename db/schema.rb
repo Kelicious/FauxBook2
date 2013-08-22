@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819042737) do
+ActiveRecord::Schema.define(:version => 20130822150604) do
 
   create_table "albums", :force => true do |t|
     t.string   "title"
@@ -23,15 +23,16 @@ ActiveRecord::Schema.define(:version => 20130819042737) do
   add_index "albums", ["user_id"], :name => "index_albums_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.integer  "post_id"
     t.integer  "author_id"
     t.string   "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "commentable_index"
 
   create_table "friend_requests", :force => true do |t|
     t.integer  "sender_id"
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130819042737) do
   end
 
   add_index "friend_requests", ["recipient_id"], :name => "index_friend_requests_on_recipient_id"
+  add_index "friend_requests", ["sender_id", "recipient_id"], :name => "index_friend_requests_on_sender_id_and_recipient_id", :unique => true
   add_index "friend_requests", ["sender_id"], :name => "index_friend_requests_on_sender_id"
 
   create_table "friendships", :force => true do |t|
