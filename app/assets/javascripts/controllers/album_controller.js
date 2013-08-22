@@ -15,10 +15,12 @@ App.AlbumController = Ember.ObjectController.extend({
   }.property('photos'),
 
   uploadPhoto: function () {
-    var self = this;
-    $('#photo-form').ajaxForm().ajaxSubmit({
+    var self = this,
+        $form = $('#photo-form');
+    $form.ajaxForm().ajaxSubmit({
       success: function () {
         self.get('model').reload();
+        $form[0].reset();
       }
     });
   }

@@ -1,3 +1,4 @@
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :picture_url_big, :picture_url_small, :album_id
+  attributes :id, :description, :album_id, :created_at
+  attributes :picture_url_big, :picture_url_small
 end

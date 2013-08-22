@@ -1,5 +1,5 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :description, :album_id, :picture
+  attr_accessible :description, :album_id, :picture, :created_at
 
   has_attached_file :picture, styles: {
     big: "600x600#",

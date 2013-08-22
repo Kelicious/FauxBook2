@@ -18,9 +18,9 @@ App.Router.map(function() {
     this.route('destroy');
   });
 
-  this.resource('album', {path: 'albums/:album_id'}, function () {
-    
-  });
+  this.resource('album', {path: 'albums/:album_id'});
+
+  this.route('photo', {path: 'photos/:photo_id'});
 });
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -124,7 +124,13 @@ App.UserAlbumsRoute = App.AuthenticatedRoute.extend({
 
 App.AlbumRoute = App.AuthenticatedRoute.extend({
   model: function (params) {
-    return album = App.Album.find(params.album_id);
+    return App.Album.find(params.album_id);
+  }
+});
+
+App.PhotoRoute = App.AuthenticatedRoute.extend({
+  model: function (params) {
+    return App.Photo.find(params.photo_id);
   }
 });
 

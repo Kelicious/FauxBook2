@@ -6,6 +6,7 @@
     {{#if canEdit}}
     <form method="post" enctype="multipart/form-data" {{bindAttr action="formAction"}} id="photo-form">
       <input type="file" name="photo[picture]">
+      <input type="text" name="photo[description]" placeholder="Enter a short description">
       <button type="submit" class="btn" {{action "uploadPhoto"}}>Upload Photo!</button>
     </form>
     {{/if}}
@@ -14,7 +15,9 @@
       This album has no photos.
       {{/if}}
       {{#each photos itemController="photo"}}
+      {{#linkTo 'photo' this}}
       <img {{bindAttr src="pictureUrlSmall"}}>
+      {{/linkTo}}
       {{/each}}
     </section>
   </section>
