@@ -3,5 +3,6 @@ App.Photo = DS.Model.extend({
   pictureUrlBig: DS.attr('string'),
   pictureUrlSmall: DS.attr('string'),
   album: DS.belongsTo('App.Album'),
-  createdAt: DS.attr('date')
+  createdAt: DS.attr('date'),
+  comments: DS.hasMany('App.Comment', { embedded: 'load' })
 });

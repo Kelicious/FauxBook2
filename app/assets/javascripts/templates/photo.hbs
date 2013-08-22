@@ -25,7 +25,13 @@
       {{description}}
     </section>
     <section class="comments">
-
+      {{#each comments}}
+      {{partial 'comment'}}
+      {{/each}}
+      <section class="comment well well-small">
+        {{view Ember.TextField placeholder="Post a comment"
+        valueBinding="newCommentBody" action="createComment"}}
+      </section>
     </section>
   </section>
 </article>

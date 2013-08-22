@@ -8,6 +8,7 @@ class Photo < ActiveRecord::Base
 
   belongs_to :album, inverse_of: :photos
   has_many :comments, as: :commentable, dependent: :destroy
+  has_one :user, through: :album
 
   def picture_url_big
     picture.url(:big)

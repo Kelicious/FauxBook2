@@ -12,7 +12,7 @@ App.AlbumController = Ember.ObjectController.extend({
 
   hasNoPhotos: function () {
     return this.get('photos.length') == 0;
-  }.property('photos'),
+  }.property('photos', 'photos.@each'),
 
   uploadPhoto: function () {
     var self = this,
