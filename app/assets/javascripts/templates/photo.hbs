@@ -3,35 +3,37 @@
     <section class="photo-picture">
       <img {{bindAttr src="pictureUrlBig"}}>
     </section>
-    <section class="head clearfix">
-      <section class="picture">
-        {{#with album.user}}
-        <img class="profile-picture-tiny" {{bindAttr src="profilePictureUrlSmall"}}>
-        {{/with}}
-      </section>
-      <section class="poster-info">
-        {{#with album.user}}
-        <section class="author-and-user">
-          <!-- linkTo causes error so use manual anchor tag instead -->
-          <a {{bindAttr href="urlHack"}}>{{name}}</a>
+    <article class="post">
+      <section class="head clearfix">
+        <section class="picture">
+          {{#with album.user}}
+          <img class="profile-picture-tiny" {{bindAttr src="profilePictureUrlSmall"}}>
+          {{/with}}
         </section>
-        {{/with}}
-        <section>
-          <time>{{createdAt}}</time>
+        <section class="poster-info">
+          {{#with album.user}}
+          <section class="author-and-user">
+            <!-- linkTo causes error so use manual anchor tag instead -->
+            <a {{bindAttr href="urlHack"}}>{{name}}</a>
+          </section>
+          {{/with}}
+          <section>
+            <time>{{createdAt}}</time>
+          </section>
         </section>
       </section>
-    </section>
-    <section class="description">
-      {{description}}
-    </section>
-    <section class="comments">
-      {{#each comments}}
-      {{partial 'comment'}}
-      {{/each}}
-      <section class="comment well well-small">
-        {{view Ember.TextField placeholder="Post a comment"
-        valueBinding="newCommentBody" action="createComment"}}
+      <section class="description">
+        {{description}}
       </section>
-    </section>
+      <section class="comments">
+        {{#each comments}}
+        {{partial 'comment'}}
+        {{/each}}
+        <section class="comment well well-small">
+          {{view Ember.TextField placeholder="Post a comment"
+          valueBinding="newCommentBody" action="createComment"}}
+        </section>
+      </section>
+    </article>
   </section>
 </article>

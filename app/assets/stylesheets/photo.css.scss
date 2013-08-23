@@ -1,20 +1,6 @@
 article.photo-page {
-  > section.photo-body {
-    > .head {
-      > section {
-        float: left;
-      }
-    }
-
-    > .poster-info {
-      > img {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  }
-
-  > .description {
-    margin: 5px;
+  input[type=text] {
+    /* this is a hack, figure out a better way later */
+    width: 98.5%;
   }
 }
