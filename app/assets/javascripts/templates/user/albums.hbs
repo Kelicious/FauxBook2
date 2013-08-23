@@ -11,7 +11,12 @@
     </section>
     {{/if}}
     {{#each controller}}
-    {{#linkTo 'album' this}}{{title}}{{/linkTo}}
+    <section class="album">
+      {{#linkTo 'album' this}}
+      <img {{bindAttr src="pictureUrl"}}>
+      {{title}}
+      {{/linkTo}}
+    </section>
     {{/each}}
   </section>
 </article>

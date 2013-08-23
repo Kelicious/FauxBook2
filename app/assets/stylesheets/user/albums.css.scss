@@ -8,4 +8,12 @@ article.user-albums-page {
       }
     }
   }
+
+  .album {
+    display: inline-block;
+
+    img {
+      display: block;
+    }
+  }
 }
