@@ -8,4 +8,10 @@ FactoryGirl.define do
     gender "male"
     birth_date Date.parse("1999-12-31")
   end
+
+  factory :post do
+    body "lorem ipsum"
+    author_id 1
+    user_id 1
+  end
 end

@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  before do
-    @user = FactoryGirl.build(:user)
-  end
+  before { @user = FactoryGirl.build(:user) }
 
   subject { @user }
 
