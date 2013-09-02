@@ -34,4 +34,18 @@ describe Post do
     before { @post.body = "" }
     it { should_not be_valid }
   end
+
+  describe "checking friendship" do
+    before { @post.author = second_user }
+    context "when not friends" do
+      it { should_not be_valid }
+    end
+    context "when friends" do
+      before do
+        FriendRequest.create(sender_id: first_user.id, recipient_id: second_user.id)
+        FriendRequest.first.approve!
+      end
+      it { should be_valid }
+    end
+  end
 end
