@@ -25,7 +25,8 @@ remove the AWS configuration from config/development.rb.
 
 To Do
 =====
-* Finish photos
-* Make comments polymorphic so they can be added to photos as well
 * Block timeline from non-friends
-* Update ember to RC7
+* Update ember to 1.0 release
+* Add likes
+* Add progress bar to picture uploads
+* Prevent user from commenting too quickly (unless new version of ember-data fixes the issue)
