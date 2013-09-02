@@ -2,13 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = User.new(email: "a@a.com", password: "password",
-                     password_confirmation: "password",
-                     first_name: "Bob",
-                     last_name: "Jones",
-                     gender: "male",
-                     birth_date: Date.parse("1999-12-31"),
-                     )
+    @user = FactoryGirl.build(:user)
   end
 
   subject { @user }
@@ -56,7 +50,7 @@ describe User do
   describe "when email address is taken" do
     before do
       user_with_same_email = @user.dup
-      user_with_same_email.email.upcase!
+      user_with_same_email.email = @user.email.upcase
       user_with_same_email.save
     end
 
@@ -66,13 +60,7 @@ describe User do
   describe "friend requests" do
     before do
       @user.save
-      @other_user = User.create(email: "b@b.com", password: "password",
-                                password_confirmation: "password",
-                                first_name: "John",
-                                last_name: "Smith",
-                                gender: "male",
-                                birth_date: Date.parse("1999-12-31"),
-                                )
+      @other_user = FactoryGirl.create(:user)
     end
 
     describe "not friends yet" do

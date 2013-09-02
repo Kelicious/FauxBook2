@@ -18,6 +18,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+end
+
 group :production do
   gem 'pg'
 end
