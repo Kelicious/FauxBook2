@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
 
   def users_are_friends
     recipient = commentable.user
-    unless author.is_friend_of?(recipient) || author == recipient
+    unless author.friend_of?(recipient) || author == recipient
       errors.add(:commentable, "Must be friend to comment")
     end
   end
