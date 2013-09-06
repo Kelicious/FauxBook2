@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 
   def users_are_friends
     if user && author
-      unless user == author || user.is_friend_of?(author)
+      unless user == author || user.friend_of?(author)
         errors.add(:author, "Must be friends to post")
       end
     end

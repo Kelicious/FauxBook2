@@ -63,7 +63,7 @@ describe User do
 
     describe "not friends yet" do
       # remove the 'is' later?
-      it { should_not be_is_friend_of @other_user }
+      it { should_not be_friend_of @other_user }
     end
 
     context "sending friend request" do
@@ -77,14 +77,14 @@ describe User do
       describe "accepting a friend request" do
         before { FriendRequest.first.approve! }
         it { should have(0).outgoing_friend_requests }
-        it { should be_is_friend_of(@other_user) }
+        it { should be_friend_of(@other_user) }
         it { @other_user.should have(0).incoming_friend_requests }
       end
 
       describe "rejecting a friend request" do
         before { FriendRequest.first.destroy }
         it { should have(0).outgoing_friend_requests }
-        it { should_not be_is_friend_of(@other_user) }
+        it { should_not be_friend_of(@other_user) }
         it { @other_user.should have(0).incoming_friend_requests }
       end
     end
@@ -95,8 +95,8 @@ describe User do
         Friendship.first.destroy!
       end
 
-      it { should_not be_is_friend_of(@other_user) }
-      it { @other_user.should_not be_is_friend_of(@user) }
+      it { should_not be_friend_of(@other_user) }
+      it { @other_user.should_not be_friend_of(@user) }
     end
   end
 

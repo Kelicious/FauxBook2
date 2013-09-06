@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
 
-  def is_friend_of?(other_user)
+  def friend_of?(other_user)
     friend_ids.include?(other_user.id)
   end
 
