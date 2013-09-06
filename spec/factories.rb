@@ -14,4 +14,11 @@ FactoryGirl.define do
     author_id 1
     user_id 1
   end
+
+  factory :comment do
+    body "lorem ipsum comment"
+    author_id 1
+    commentable_type "Post"
+    commentable_id 1
+  end
 end

@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
   private
 
   def users_are_friends
+    # need the condition check so the rspec test doesn't throw an error
     if user && author
       unless user == author || user.friend_of?(author)
         errors.add(:author, "Must be friends to post")
