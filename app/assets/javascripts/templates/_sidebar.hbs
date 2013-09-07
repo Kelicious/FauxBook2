@@ -1,0 +1,18 @@
+<a href="#" id="menu-toggler"><span></span></a>
+<section id="sidebar" class="fixed">
+  <ul class="nav nav-list">
+    {{#if currentUser.hasPendingFriendRequests}}
+    <li>{{#linkTo 'user.requests' currentUser}}
+      Friend Requests
+      <span class="badge badge-important">
+        {{currentUser.friendRequestSenders.length}}
+      </span>
+      {{/linkTo}}
+    </li>
+    {{/if}}
+    <li>{{#linkTo 'users'}}Users{{/linkTo}}</li>
+    <li>{{#linkTo 'user' currentUser}}Profile{{/linkTo}}</li>
+    <li>{{#linkTo 'user.friends' currentUser}}Friends{{/linkTo}}</li>
+    <li>{{#linkTo 'user.albums' currentUser}}Albums{{/linkTo}}</li>
+  </ul>
+</section>
